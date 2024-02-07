@@ -2,7 +2,7 @@
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
-const endpointMovies = `https://api.themoviedb.org/3/search/movie?query=lupin&api_key=18d004e7a15f51ac9c01ea83b056f7cb&languate =it-IT`
+const endpoint = `https://api.themoviedb.org/3/search/movie?&api_key=18d004e7a15f51ac9c01ea83b056f7cb&languate =it-IT&query=`
 import { store } from './data/store'
 import 'bootstrap/dist/css/bootstrap.min.css';
 export default {
@@ -11,17 +11,21 @@ export default {
         store
     }),
     computed: {
-        serchMovies() {
-            axios.get(endpointMovies).then(res => {
+        searchMovies() {
+            axios.get(endpoint).then(res => {
                 store.movies = res.data.results
             })
         }
-
     },
-    created() {
-        this.serchMovies
+    methods: {
+        searchTitle(title) {
+            axios.get(endpoint + `${title}`).then(res => {
+                store.movies = res.data.results
+            })
+        },
+    },
 
-    }
+
 
 
 }
@@ -29,7 +33,7 @@ export default {
 </script>
 
 <template>
-    <AppHeader />
+    <AppHeader @search-title="searchTitle" />
     <AppMain />
 </template>
 <style></style>

@@ -1,12 +1,16 @@
 <script>
 export default {
-    name: 'Appform'
+    name: 'Appform',
+    data: () => ({
+        searchTitle: ''
+    }),
+    emits: ['submit-search']
 }
 </script>
 <template>
-    <form class="d-flex gap-3 align-items">
+    <form action="" @submit.prevent="$emit('submit-search', searchTitle)" class="d-flex gap-3 align-items">
         <div class="mb-3 ">
-            <input type="email" class="form-control">
+            <input type="text" class="form-control" v-model="searchTitle">
         </div>
         <button type="submit" class="btn btn-primary">Cerca</button>
     </form>

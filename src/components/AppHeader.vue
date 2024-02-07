@@ -2,7 +2,8 @@
 import Form from './Form.vue';
 export default {
     name: 'AppHeader',
-    components: { Form }
+    components: { Form },
+    emits: ['search-title']
 }
 </script>
 <template>
@@ -10,7 +11,7 @@ export default {
         <h1>BOOLFLIX</h1>
         <div>
 
-            <Form />
+            <Form @submit-search="$emit('search-title', $event)" />
         </div>
 
     </div>

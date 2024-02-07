@@ -8,7 +8,8 @@ export default {
 }
 </script>
 <template>
-    <div>
+    <section id="movies">
+        <h1 class="text-danger">MOVIES</h1>
         <div v-for="movie in store.movies">
             <h1>{{ movie.title }}</h1>
             <h2>{{ movie.original_title }}</h2>
@@ -16,6 +17,6 @@ export default {
             <h5>{{ movie.original_language }}</h5>
             <hr>
         </div>
-    </div>
+    </section>
 </template>
 <script></script>
