@@ -1,7 +1,21 @@
 <script>
+import { store } from '../data/store'
 export default {
-    name: 'AppMain'
+    name: 'AppMain',
+    data: () => ({
+        store
+    })
 }
 </script>
-<template></template>
+<template>
+    <div>
+        <div v-for="movie in store.movies">
+            <h1>{{ movie.title }}</h1>
+            <h2>{{ movie.original_title }}</h2>
+            <h4>{{ movie.vote_average }}</h4>
+            <h5>{{ movie.original_language }}</h5>
+            <hr>
+        </div>
+    </div>
+</template>
 <script></script>

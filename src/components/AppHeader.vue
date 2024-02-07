@@ -1,6 +1,8 @@
 <script>
+import Form from './Form.vue';
 export default {
-    name: 'AppHeader'
+    name: 'AppHeader',
+    components: { Form }
 }
 </script>
 <template>
@@ -8,13 +10,8 @@ export default {
         <h1>BOOLFLIX</h1>
         <div>
 
+            <Form />
         </div>
-        <form class="d-flex gap-3 align-items">
-            <div class="mb-3 ">
-                <input type="email" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-primary">Cerca</button>
-        </form>
 
     </div>
 </template>
