@@ -2,7 +2,8 @@
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
-const endpoint = `https://api.themoviedb.org/3/search/movie?&api_key=18d004e7a15f51ac9c01ea83b056f7cb&languate =it-IT&query=`
+const endpointMovies = `https://api.themoviedb.org/3/search/movie?&api_key=18d004e7a15f51ac9c01ea83b056f7cb&language=it-IT&query=`
+const endpointSeriesTv = `https://api.themoviedb.org/3/search/tv?&api_key=18d004e7a15f51ac9c01ea83b056f7cb&language=it-IT&query=`
 import { store } from './data/store'
 import 'bootstrap/dist/css/bootstrap.min.css';
 export default {
@@ -19,8 +20,11 @@ export default {
     },
     methods: {
         searchTitle(title) {
-            axios.get(endpoint + `${title}`).then(res => {
+            axios.get(endpointMovies + `${title}`).then(res => {
                 store.movies = res.data.results
+            })
+            axios.get(endpointSeriesTv + `${title}`).then(res => {
+                store.SeriesTv = res.data.results
             })
         },
     },
