@@ -1,6 +1,7 @@
 <script>
 import { store } from '../data/store'
 import CardMovie from './CardMovie.vue';
+import Rating from './Rating.vue';
 export default {
     name: 'AppMain',
     components: { CardMovie },

@@ -1,6 +1,8 @@
 <script>
+import Rating from './Rating.vue';
 export default {
     name: `CardMovie`,
+    components: { Rating },
     props: {
         movieTitle: String,
         movieOriginalTitle: String,
@@ -21,7 +23,7 @@ export default {
 <template>
     <h1>{{ movieTitle }}</h1>
     <h2>{{ movieOriginalTitle }}</h2>
-    <h4>{{ changeValueVote }}</h4>
+    <Rating rating="changeValueVote" />
     <div v-if="movieLanguage == 'en'">
         <img src="/img/en.png" :alt="movieLanguage">
     </div>
