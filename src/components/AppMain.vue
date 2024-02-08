@@ -1,14 +1,13 @@
 <script>
 import { store } from '../data/store'
 import CardMovie from './CardMovie.vue';
+import CardSerie from './CardSerie.Vue';
 export default {
     name: 'AppMain',
-    components: { CardMovie },
+    components: { CardMovie, CardSerie },
     data: () => ({
         store
     }),
-
-
 
 }
 </script>
@@ -23,22 +22,9 @@ export default {
     <section id="Series-tv">
         <h1>SERIES</h1>
         <div v-for="serie in store.SeriesTv">
-            <h1>{{ serie.name }}</h1>
-            <h2>{{ serie.original_name }}</h2>
-            <h4>{{ serie.vote_average }}</h4>
-
-            <div v-if="serie.original_language == 'en'">
-                <img src="/img/en.png" :alt="serie.original_language">
-            </div>
-            <div v-else-if="serie.original_language == 'it'">
-                <img src="/img/it.png" :alt="serie.original_language">
-            </div>
-            <div v-else>
-                <img src="/img/mondo.jpg" alt="">
-                <h5>Language:{{ serie.original_language }}</h5>
-            </div>
+            <CardSerie :serieTitle="serie.name" :serieOriginalTitle="serie.original_name" :serieVote="serie.vote_average"
+                :serieLanguage="serie.original_language" :serieImage="serie.poster_path" />
         </div>
-
     </section>
 </template>
 <style scoped>
