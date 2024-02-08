@@ -1,7 +1,6 @@
 <script>
 import { store } from '../data/store'
 import CardMovie from './CardMovie.vue';
-import Rating from './Rating.vue';
 export default {
     name: 'AppMain',
     components: { CardMovie },
@@ -19,8 +18,6 @@ export default {
         <div v-for="movie in store.movies">
             <CardMovie :movieTitle="movie.title" :movieOriginalTitle="movie.original_title" :movieVote="movie.vote_average"
                 :movieLanguage="movie.original_language" :movieImage="movie.poster_path" />
-
-
         </div>
     </section>
     <section id="Series-tv">

@@ -23,7 +23,7 @@ export default {
 <template>
     <h1>{{ movieTitle }}</h1>
     <h2>{{ movieOriginalTitle }}</h2>
-    <Rating rating="changeValueVote" />
+    <Rating :rating="changeValueVote" />
     <div v-if="movieLanguage == 'en'">
         <img src="/img/en.png" :alt="movieLanguage">
     </div>
