@@ -1,10 +1,9 @@
 <script>
 import { store } from '../data/store'
-import CardMovie from './CardMovie.vue';
-import CardSerie from './CardSerie.Vue';
+import Card from './Card.vue';
 export default {
     name: 'AppMain',
-    components: { CardMovie, CardSerie },
+    components: { Card },
     data: () => ({
         store
     }),
@@ -14,17 +13,11 @@ export default {
 <template>
     <section id="movies">
         <h1 class="text-danger">MOVIES</h1>
-        <div v-for="movie in store.movies">
-            <CardMovie :movieTitle="movie.title" :movieOriginalTitle="movie.original_title" :movieVote="movie.vote_average"
-                :movieLanguage="movie.original_language" :movieImage="movie.poster_path" />
-        </div>
+        <Card v-for="movie in store.movies" :key="movie.id" :production="movie" />
     </section>
-    <section id="Series-tv">
-        <h1>SERIES</h1>
-        <div v-for="serie in store.SeriesTv">
-            <CardSerie :serieTitle="serie.name" :serieOriginalTitle="serie.original_name" :serieVote="serie.vote_average"
-                :serieLanguage="serie.original_language" :serieImage="serie.poster_path" />
-        </div>
+    <section>
+        <h2>Series</h2>
+        <Card v-for="serie in store.seriesTv" :key="serieTv.id" :production="serie" />
     </section>
 </template>
 <style scoped>
