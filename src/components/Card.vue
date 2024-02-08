@@ -1,9 +1,12 @@
 <script>
+import RatingStars from './RatingStars.vue';
 export default {
     name: `Card`,
+    components: { RatingStars },
     props: {
         production: Object,
     },
+
     data: () => ({ stringImg: 'https://image.tmdb.org/t/p/w342/' }),
     computed: {
         ratingCard() {
@@ -12,12 +15,11 @@ export default {
     }
 
 }
-
 </script>
 <template>
     <h1>{{ production.title || production.name }}</h1>
     <h2>{{ production.original_title || production.original_name }}</h2>
-    <h3>{{ ratingCard }}</h3>
+    <RatingStars :rating="ratingCard" />
     <div v-if="production.original_language == 'en'">
         <img src="/img/en.png" :alt="production.original_language">
     </div>
