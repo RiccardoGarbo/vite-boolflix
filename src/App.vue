@@ -11,13 +11,6 @@ export default {
     data: () => ({
         store
     }),
-    computed: {
-        searchMovies() {
-            axios.get(endpoint).then(res => {
-                store.movies = res.data.results
-            })
-        }
-    },
     methods: {
         searchTitle(title) {
             axios.get(endpointMovies + `${title}`).then(res => {
