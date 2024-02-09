@@ -45,4 +45,8 @@ export default {
         <AppMain />
     </div>
 </template>
-<style lang="scss"></style>
+<style lang="scss">
+div {
+    background-image: url('../public/img/Netflix-Gradient-HD-Wallpaper-7281.png');
+}
+</style>

@@ -14,12 +14,12 @@ export default {
 </script>
 <template>
     <div id="form">
-        <form action="" @submit.prevent="$emit('submit-search', searchTitle)" class="d-flex gap-3 align-items">
-            <div class="mb-3 ">
+        <form @submit.prevent="$emit('submit-search', searchTitle)" class="d-flex gap-3 align-items-center">
+            <div class="d-flex align-items-center ">
                 <input :placeholder="placeholder" @keyup="$emit('title-change', searchTitle)" type="text"
                     class="form-control" v-model="searchTitle">
             </div>
-            <button type="submit" class="btn btn-primary">{{ buttonPh }}</button>
+            <button type="submit" class="btn btn-danger">{{ buttonPh }}</button>
         </form>
     </div>
 </template>
