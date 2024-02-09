@@ -8,10 +8,17 @@ export default {
 
     },
 
-    data: () => ({ stringImg: 'https://image.tmdb.org/t/p/w342/' }),
+    data: () => ({
+        stringImg: 'https://image.tmdb.org/t/p/w342/',
+        placeholderImg: `https://www.altavod.com/assets/images/poster-placeholder.png`
+    }),
     computed: {
         ratingCard() {
             return Math.ceil(this.production.vote_average / 2)
+        },
+        imgSrc() {
+            if (this.production.poster_path === null) return this.placeholderImg
+            return this.stringImg + this.production.poster_path
         }
     }
 
@@ -19,7 +26,7 @@ export default {
 </script>
 <template>
     <div class="card border-0 ">
-        <img :src="stringImg + production.poster_path" :alt="production.title || production.name">
+        <img :src="imgSrc" :alt="production.title || production.name">
         <div id="info-card">
             <h4>Titolo:{{ production.title || production.name }}</h4>
             <h4>Titolo Originale:{{ production.original_title || production.original_name }}</h4>

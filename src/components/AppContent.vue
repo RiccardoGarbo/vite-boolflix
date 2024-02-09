@@ -26,12 +26,9 @@ export default {
     </section>
 </template>
 <style scoped>
-section div {
-    flex-basis: 100%;
-}
-
 .s-card {
     flex-basis: 25%;
+
 }
 </style>
 
