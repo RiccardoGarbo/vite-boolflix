@@ -5,6 +5,7 @@ export default {
     components: { RatingStars },
     props: {
         production: Object,
+
     },
 
     data: () => ({ stringImg: 'https://image.tmdb.org/t/p/w342/' }),
@@ -17,19 +18,45 @@ export default {
 }
 </script>
 <template>
-    <h1>{{ production.title || production.name }}</h1>
-    <h2>{{ production.original_title || production.original_name }}</h2>
-    <RatingStars :rating="ratingCard" />
-    <div v-if="production.original_language == 'en'">
-        <img src="/img/en.png" :alt="production.original_language">
+    <div class="card border-0 ">
+        <img :src="stringImg + production.poster_path" :alt="production.title || production.name">
+        <div id="info-card">
+            <h4>Titolo:{{ production.title || production.name }}</h4>
+            <h4>Titolo Originale:{{ production.original_title || production.original_name }}</h4>
+            <RatingStars :rating="ratingCard" />
+            <div v-if="production.original_language == 'en'">
+                <img class="langimg" src="/img/en.png" :alt="production.original_language">
+            </div>
+            <div v-else-if="production.original_language == 'it'">
+                <img class="langimg" src="/img/it.png" :alt="production.original_language">
+            </div>
+            <div v-else>
+                <img class="langimg" src="/img/mondo.jpg" alt="">
+                <h5>Lingua:{{ production.original_language }}</h5>
+            </div>
+        </div>
     </div>
-    <div v-else-if="production.original_language == 'it'">
-        <img src="/img/it.png" :alt="production.original_language">
-    </div>
-    <div v-else>
-        <img src="/img/mondo.jpg" alt="">
-        <h5>Language:{{ production.original_language }}</h5>
-    </div>
-    <img :src="stringImg + production.poster_path" :alt="production.title || production.name">
 </template>
-<style scoped></style>
+<style scoped>
+.card {
+    position: relative;
+}
+
+#info-card {
+    color: white;
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.75);
+    height: 100%;
+    width: 100%;
+}
+
+.card:hover #info-card {
+    display: inline-block;
+}
+
+.langimg {
+    width: 50px;
+    height: 50px
+}
+</style>

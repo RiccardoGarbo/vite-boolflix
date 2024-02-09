@@ -10,7 +10,8 @@ export default {
 }
 </script>
 <template>
-    <div class="rating">
+    <div class="rating d-flex">
+        <h5>Voto:</h5>
         <span v-for="i in rating" :key="i">
             <i class="fa-solid fa-star"></i></span>
         <span v-for="i in maxRating - rating" :key="i"><i class="fa-regular fa-star"></i></span>

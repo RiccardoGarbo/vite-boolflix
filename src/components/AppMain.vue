@@ -1,24 +1,19 @@
 <script>
+import AppContent from './AppContent.vue';
 import { store } from '../data/store'
-import Card from './Card.vue';
 export default {
     name: 'AppMain',
-    components: { Card },
+    components: { AppContent },
     data: () => ({
         store
-    }),
+    })
 
 }
 </script>
 <template>
-    <section id="movies">
-        <h1 class="text-danger">MOVIES</h1>
-        <Card v-for="movie in store.movies" :key="movie.id" :production="movie" />
-    </section>
-    <section>
-        <h2>Series</h2>
-        <Card v-for="serie in store.seriesTv" :key="serieTv.id" :production="serie" />
-    </section>
+    <div class="container">
+        <AppContent v-if="this.store.movies.length || this.store.seriesTv.length >= 1" />
+    </div>
 </template>
 <style scoped>
 img {

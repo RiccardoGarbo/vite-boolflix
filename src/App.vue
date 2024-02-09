@@ -2,8 +2,6 @@
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
-const endpointMovies = `https://api.themoviedb.org/3/search/movie?&api_key=18d004e7a15f51ac9c01ea83b056f7cb&language=it-IT&query=`
-const endpointSeriesTv = `https://api.themoviedb.org/3/search/tv?&api_key=18d004e7a15f51ac9c01ea83b056f7cb&language=it-IT&query=`
 import { store } from './data/store'
 import { api } from './data/index'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -42,7 +40,9 @@ export default {
 </script>
 
 <template>
-    <AppHeader @search-title="searchProduction" @title-change="setTitle" />
-    <AppMain />
+    <div class="vh-100">
+        <AppHeader @search-title="searchProduction" @title-change="setTitle" />
+        <AppMain />
+    </div>
 </template>
-<style></style>
+<style lang="scss"></style>
